@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter Tight";
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+            .baner{
+                background-color:#f5f5f7 ;
+                width: 100%;
+                height: 25vh;
+                 display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+                .baner a {
+                    font-size: 48px;
+                    font-weight: 600 ;
+                }
+            .cuadro{
+                box-shadow: #050505 0px 4px 10px; 
+                border-radius: 24px;
+                height: 630px ;
+                width: 700px;
+            }
+            .selcionar_inicio_session{
+                display: flex;
+                justify-content: space-around;
+                margin: 20px 80px 0px 80px;
+            }
+                .selcionar_inicio_session a{
+                    font-size: 22px;
+                    font-weight: 500 ;
+                }
+
+
+
+                .cuadro_segundo{
+                    margin: 16px 24px ;
+                }
+                    .titulos{
+                        margin: 40px 0px 16px 0px;
+
+                    }
+                    .titulos p{
+                        font-size: 28px;
+                        font-weight: 600 ;
+                    }
+                    .titulos span{
+                        font-size: 14px;
+                        font-weight: 400 ;
+                    }
+                    .inputs_cuadro{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        gap: 16px;
+                        margin-bottom:16px ;
+                        
+
+                    }
+                        .inputs_cuadro input{
+                                border: 2px solid #e1e4e7;
+                                border-radius: 40px;
+                                font-size: 16px;
+                                padding: 20px;
+                        }
+                    .botones{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 16px;
+                    }
+                    .botones button{
+                        border-radius:40px;
+                         font-size: 16px;
+                        font-weight: 600;
+                    }
+                    .botones_1{
+                        display: flex;
+                        flex-direction: column;
+                        gap:16px ;
+                        align-items: center;
+                    }
+                        .botones_1 button{
+                            background: #F5F5F7;
+                            box-shadow: #050505 0px 2px 6px; 
+                            width: 230px;
+                            height: 52px;
+                            border: transparent;
+                           
+                        }
+                         
+                    .botones_2{
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                        .botones_2 button{
+                            background: transparent;
+                            width:230px ;
+                            height: 44px;
+                            border: solid 2px #E0E3E7;
+                        }
+
+    </style>
+</head>
+<body>
+    <div class="baner">
+        <a>Huellitas</a>
+    </div>
+    <div class="cuadro">
+    <div class="selcionar_inicio_session">
+            <a href="Create_Account.html" style="text-decoration: none; color: inherit;">Crear cuenta</a>
+            <a href="Login.html" style="text-decoration: none; color: inherit;">Iniciar Sesión</a>
+
+    </div>
+        <div class="cuadro_segundo">
+            <div class="titulos">
+                <p>Iniciar Sesión</p>
+                <span>Ingresa tus datos para crear una cuentas</span>
+            </div>
+            <div class="inputs_cuadro">
+                <input type="email" placeholder="Correo Electrónico">
+                <input type="password" placeholder="Password">
+            </div>
+            <div class="botones">
+                <div class="botones_1">
+                <a href="index.html">
+                    <button>Iniciar Sesión</button>
+                </a>
+                    <span>Iniciar sesión con</span>
+                </div>
+                <div class="botones_2">
+                    <button>Iniciar con Google</button>
+                    <button>Iniciar con Apple</button>
+                </div>
+            </div>
+        </div>
+        <div class="cuadro_segundo"></div>
+
+    
+   
+    </div>
+    
+</body>
+</html>

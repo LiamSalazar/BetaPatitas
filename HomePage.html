@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+
+<style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter Tight";
+        }
+    body{
+        background: orange;
+        
+    }
+        .gris{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f5f5f7;
+            padding-top: 50px;
+            gap: 16px;
+        }
+            .titulo{
+                font-size: 64px;
+                font-weight: 600;
+            }
+            .subtitulo{
+                font-size: 36px;
+                font-weight: 400;
+            }
+            .botones{
+                display: flex;
+                padding: 20px 0px;
+                gap: 66px;
+            }
+            .botones button{
+                border-radius: 24px;;
+                font-size: 18px;
+                width: 180px;
+                height: 55px;
+                padding: 12px;
+                border:solid 2px #0071E3;
+            }
+                .btn_1{
+                    background:#0071E3 ;
+                    color: #F5F5F7;
+                }
+                .btn_2{
+                background:#F5F5F7 ;
+                    color: #0071E3  ;
+                }
+            .gris img{
+                width: 500px;
+            }
+        .informacion{
+            background: white;
+        }
+            .inf_1{
+                 display: flex;
+                 justify-content: space-evenly;
+                 padding: 36px;
+            }
+                .text{
+                    display: flex;
+                    flex-direction: column;
+                    width: 350px;
+                    height: 300px;
+                    text-align: justify;
+                    gap: 24px;
+                }
+                .text a{
+                    font-size: 36px;
+                    font-weight: 600;
+                    text-align: center;
+                }
+                .informacion img{
+                    width: 400px;
+                    height: 400px;
+                }
+        .eventos {
+             background: white;
+             padding: 16px;
+             display: flex;
+             flex-direction: column;
+             gap: 16px;
+        }
+        
+        .eventos a{
+          font-size: 36px;
+            font-weight: 600;
+        }
+            .event_cuadros{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap:10px ;
+            }        
+            .event_cuadros img{
+                width: 100%;
+            }
+        
+
+        .contenedor_slider{
+            display: flex;
+            flex-direction: column;
+            
+            background: #f5f5f7; 
+            padding: 45px;
+        }
+            .contenedor_slider a{
+                font-size: 32px;
+                font-weight: 600;
+                margin-bottom: 24px;
+                
+            }
+        .slider{
+            display: flex;
+            gap: 16px;
+        }
+            .carta{
+                width: 260px;
+                height: 350px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                background: white;
+                border-radius: 12px;
+            }
+                .img_carta{
+                    width: 180px;
+                    height: 180px;
+                    border-radius: 100%;
+                }
+                .carta p{
+                    font-size: 28px;
+                    font-weight: 600;
+                }
+                .carta span{
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+
+    .datos_contacto{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: white;
+        padding: 36px 48px;
+        padding-bottom: 80px;/* Esto es por la cagada con las alturas hay un error con el header y ifram corregir*/
+    }
+        .cont_logo{
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+         .cont_logo h1{
+            font-size: 24px;
+            font-weight: 600;
+         }
+        .logo {
+            width: 130px;
+        }
+        .dat_1{
+            display: flex;
+            flex-direction: column;
+           
+            gap: 12px;
+        }
+            .dat_2{
+               width: 400px; 
+            }
+        .dat_1 a{
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .dat_1 p{
+            font-size: 20px;
+            font-weight:400;
+            text-align: justify;
+        }
+        .carta p a {
+            color: inherit;         /* Mantiene el color del texto */
+            text-decoration: none;  /* Quita el subrayado */
+        }
+
+</style>
+
+</head>
+<body>
+    <div class="gris">
+        <a class="titulo">Hulletias</a>
+        <div>
+            <a class="subtitulo">Conce a tu nueva familia</a>
+        </div>
+        <div class="botones">
+            <button class="btn_1">Donativos</button>
+                <a href="Perros.html">
+                    <button>Conócelos</button>
+                </a>
+        </div>
+        <a>Un encuentero, dos salvaciones</a>
+        <img src="img/liam2.png">
+
+    </div>
+    <div class="informacion">
+        <div class="inf_1"> 
+            <div class="text">
+                <a>¿Qué hacemos?</a>
+                <p>Salvamos vidas y conectamos corazones mediante adopciones responsables, ofreciendo refugio, cuidado y oportunidad para
+                     cada patita. Buscamos transformar el miedo en confianza y el abandono en el hogar, porque creemos firmemente
+                      que los segundos comienzos siempre son posibles.</p>
+            </div>
+            <img src="img/ia_1.jfif">
+        </div>
+        <div class="inf_1">
+             <img src="img/ia_2.jfif">
+            <div class="text">
+                <a>¿Qué queremos lograr?</a>
+                <p>Inspirar un mundo donde ningún animal sufra abandono o maltrato, promoviendo una sociedad que valore, respete y proteja
+                     a todos los seres vivos. Nuestro propósito es erradicar el abandono y el maltrato animal en nuestra comunidad,
+                    construyendo así un futuro más compasivo y justo para todos..</p>
+            </div>
+        </div>
+    </div>
+    <div class="eventos">
+        <a>Eventos</a>
+           <div class="event_cuadros">
+            <div class="event_cuadros_1">
+                <img src="img/ia_3.jfif">
+                
+            </div>
+            <div class="event_cuadros_1">
+                <img src="img/ia_4.jfif">
+                
+            </div>
+           </div> 
+    </div>
+    <div class="contenedor_slider">
+        <a>Ideales para ti</a>
+        <div class="slider">
+            <div class="carta">
+                <img class="img_carta" src="img/perro_1.jfif">
+                <p><a href="DogProfile.html">Firualas</a></p>
+                <span>En adopción</span>
+            </div>
+
+            <div class="carta">
+                <img class="img_carta" src="img/perro_1.jfif">
+                <p><a href="DogProfile.html">Firualas</a></p>
+                <span>En adopción</span>
+            </div>
+
+            <div class="carta">
+                <img class="img_carta" src="img/perro_1.jfif">
+                <p><a href="DogProfile.html">Firualas</a></p>
+                <span>En adopción</span>
+            </div>
+
+            <div class="carta">
+                <img class="img_carta" src="img/perro_1.jfif">
+                <p><a href="DogProfile.html">Firualas</a></p>
+                <span>En adopción</span>
+            </div>
+
+            <div class="carta">
+                <img class="img_carta" src="img/perro_1.jfif">
+                <p><a href="DogProfile.html">Firualas</a></p>
+                <span>En adopción</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="datos_contacto">
+        <div class="cont_logo">
+            <img class="logo" src="img/LogoPNG.png">
+            <h1>Huellitas</h1>
+        </div>
+        
+        <div class="dat_1">
+            <a>Contactanos</a>
+            <p>55 2321 8850</p>
+            <p>huellitas@gmail.com</p>
+        </div>
+        <div class="dat_1 dat_2">
+            <a>Visitanos</a>
+            <p>ESCOM IPN, Unidad Profesional Adolfo López Mateos, 
+                Av. Juan de Dios Bátiz, Nueva Industrial Vallejo, Gustavo 
+                A. Madero, 07320 Ciudad de México, CDMX</p>
+        </div>
+
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
