@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Voluntario</title>
+</head>
+<body>
+    <h1>Formulario de Registro de Voluntario</h1>
+    
+    <form>
+        <!-- Datos personales del voluntario -->
+        <div>
+            <h2>🤝 Datos personales del voluntario</h2>
+            <div>
+                <div>
+                    <label for="idVoluntario">ID unico del voluntario</label>
+                    <input type="text" id="idVoluntario" name="idVoluntario" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="nombreCompleto">Nombre completo</label>
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="curp">CURP / Identificacion oficial</label>
+                    <input type="text" id="curp" name="curp">
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="telefonoPrincipal">Telefono principal</label>
+                    <input type="tel" id="telefonoPrincipal" name="telefonoPrincipal" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="telefonoSecundario">Telefono secundario</label>
+                    <input type="tel" id="telefonoSecundario" name="telefonoSecundario">
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="email">Correo electronico</label>
+                    <input type="email" id="email" name="email" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="calle">Calle</label>
+                    <input type="text" id="calle" name="calle" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="colonia">Colonia</label>
+                    <input type="text" id="colonia" name="colonia" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" id="ciudad" name="ciudad" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" name="estado" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="codigoPostal">Codigo Postal</label>
+                    <input type="text" id="codigoPostal" name="codigoPostal" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="contactoEmergenciaNombre">Nombre de contacto de emergencia</label>
+                    <input type="text" id="contactoEmergenciaNombre" name="contactoEmergenciaNombre" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="contactoEmergenciaTelefono">Telefono de contacto de emergencia</label>
+                    <input type="tel" id="contactoEmergenciaTelefono" name="contactoEmergenciaTelefono" required>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Informacion general -->
+        <div>
+            <h2>🤝 Informacion general</h2>
+            <div>
+                <div>
+                    <label for="fechaIngreso">Fecha de ingreso como voluntario</label>
+                    <input type="date" id="fechaIngreso" name="fechaIngreso" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="disponibilidad">Disponibilidad de tiempo</label>
+                    <textarea id="disponibilidad" name="disponibilidad" required placeholder="Días y horas disponibles"></textarea>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="tipoVoluntario">Tipo de voluntario</label>
+                    <select id="tipoVoluntario" name="tipoVoluntario" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="temporal">Temporal</option>
+                        <option value="fijo">Fijo</option>
+                        <option value="estudiante_servicio_social">Estudiante de servicio social</option>
+                        <option value="practicas_profesionales">Practicas profesionales</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                        <label for="otroVoluntario">Si selecciono "Otro", especifique:</label>
+                        <input type="text" id="otroVoluntario" name="otroVoluntario">
+                        <br><br>
+                </div>
+                
+                <div>
+                    <label for="habilidades">Habilidades o experiencia previa</label>
+                    <textarea id="habilidades" name="habilidades" placeholder="Manejo de animales, primeros auxilios, administración, etc."></textarea>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Datos dentro del albergue -->
+        <div>
+            <h2>🤝 Datos dentro del albergue</h2>
+            <div>
+                <div>
+                    <label for="areaAsignada">Area asignada</label>
+                    <select id="areaAsignada" name="areaAsignada" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="cuidado_perros">Cuidado de perros</option>
+                        <option value="cuidado_gatos">Cuidado de gatos</option>
+                        <option value="area_medica">Area medica</option>
+                        <option value="limpieza">Limpieza</option>
+                        <option value="eventos">Eventos</option>
+                        <option value="adopciones">Adopciones</option>
+                        <option value="administracion">Administracion</option>
+                        <option value="otra">Otra</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="otroArea">Si selecciono "Otra", especifique:</label>
+                    <input type="text" id="otroArea" name="otroArea">
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="tipoAnimalAsignado">Tipo de animal asignado</label>
+                    <select id="tipoAnimalAsignado" name="tipoAnimalAsignado" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="perros">Perros</option>
+                        <option value="gatos">Gatos</option>
+                        <option value="ambos">Ambos</option>
+                        <option value="casos_especiales">Casos especiales</option>
+                    </select>
+                </div>
+                <br><br>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="numeroAnimales">Numero de animales bajo su responsabilidad (si aplica)</label>
+                    <input type="number" id="numeroAnimales" name="numeroAnimales" min="0">
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="actividades">Actividades especificas</label>
+                    <textarea id="actividades" name="actividades" required placeholder="Alimentacion, paseo, limpieza de areas, etc."></textarea>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="supervisor">Supervisor o encargado responsable</label>
+                    <input type="text" id="supervisor" name="supervisor" required>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seguimiento y control -->
+        <div>
+            <h2>🤝 Seguimiento y control</h2>
+            <div>
+                <div>
+                    <label for="capacitaciones">Capacitaciones recibidas</label>
+                    <textarea id="capacitaciones" name="capacitaciones" placeholder="Manejo de animales, protocolos del albergue, adopciones responsables, etc."></textarea>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="asistencia">Asistencia / horas acumuladas</label>
+                    <input type="text" id="asistencia" name="asistencia" placeholder="Registro de participacion">
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="observaciones">Observaciones del desempeño</label>
+                    <textarea id="observaciones" name="observaciones" placeholder="Notas internas del albergue"></textarea>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="estado">Estado actual</label>
+                    <select id="estado" name="estado" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                        <option value="suspendido">Suspendido</option>
+                        <option value="egresado">Egresado</option>
+                    </select>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        
+        <button type="submit">Registrar Voluntario</button>
+    </form>
+</body>
+</html>

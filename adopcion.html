@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Adopcion</title>
+</head>
+<body>
+    <h1>Formulario de Adopcion</h1>
+    
+    <form>
+        <!-- Datos del adoptante -->
+        <div>
+            <h2>🏠 Datos del adoptante</h2>
+            <div>
+                <div>
+                    <label for="idAdoptante">ID unico del adoptante</label>
+                    <input type="text" id="idAdoptante" name="idAdoptante" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="nombreAdoptante">Nombre completo del adoptante</label>
+                    <input type="text" id="nombreAdoptante" name="nombreAdoptante" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="telefonoAdoptante">Telefono de contacto</label>
+                    <input type="tel" id="telefonoAdoptante" name="telefonoAdoptante" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="emailAdoptante">Correo electronico</label>
+                    <input type="email" id="emailAdoptante" name="emailAdoptante" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="direccionAdoptante">Direccion (para seguimiento)</label>
+                    <textarea id="direccionAdoptante" name="direccionAdoptante" required></textarea>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Datos del animal solicitado -->
+        <div>
+            <h2>🏠 Datos del animal solicitado</h2>
+            <div>
+                <div>
+                    <label for="idAnimal">ID unico del animal</label>
+                    <input type="text" id="idAnimal" name="idAnimal" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="nombreAnimal">Nombre del animal</label>
+                    <input type="text" id="nombreAnimal" name="nombreAnimal" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="especieAnimal">Especie</label>
+                    <input type="text" id="especieAnimal" name="especieAnimal" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="razaAnimal">Raza</label>
+                    <input type="text" id="razaAnimal" name="razaAnimal">
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="edadAnimal">Edad</label>
+                    <input type="text" id="edadAnimal" name="edadAnimal">
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="estadoAnimal">Estado actual</label>
+                    <select id="estadoAnimal" name="estadoAnimal" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="disponible">Disponible</option>
+                        <option value="en_proceso">En proceso</option>
+                        <option value="adoptado">Adoptado</option>
+                    </select>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Condiciones de adopción -->
+        <div>
+            <h2>🏠 Condiciones de adopcion</h2>
+            <div>
+                <div>
+                    <label for="motivoAdopcion">Motivo de adopcion</label>
+                    <select id="motivoAdopcion" name="motivoAdopcion" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="compañia">Compañia</option>
+                        <option value="rescate">Rescate</option>
+                        <option value="seguridad">Seguridad</option>
+                        <option value="terapia">Terapia</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="otroMotivo">Si selecciono "Otro", especifique el motivo:</label>
+                   <input type="text" id="otroMotivo" name="otroMotivo">
+                   <br><br>
+                </div>
+                
+                <div>
+                    <label for="tipoVivienda">Tipo de vivienda</label>
+                    <select id="tipoVivienda" name="tipoVivienda" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="casa">Casa</option>
+                        <option value="departamento">Departamento</option>
+                        <option value="casa_con_patio">Casa con patio</option>
+                        <option value="casa_sin_patio">Casa sin patio</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="otroVivienda">Si selecciono "Otro", especifique:</label>
+                   <input type="text" id="otroVivienda" name="otroVivienda">
+                   <br><br>
+                </div>
+
+            </div>
+            
+            <div>
+                <div>
+                    <label for="personasHogar">Personas que habitan en el hogar</label>
+                    <div>
+                        <label><input type="checkbox" name="personasHogar" value="adultos"> Adultos</label>
+                        <label><input type="checkbox" name="personasHogar" value="niños"> Niños</label>
+                        <label><input type="checkbox" name="personasHogar" value="adultos_mayores"> Adultos mayores</label>
+                        <label><input type="checkbox" name="personasHogar" value="Otros"> Otros</label>
+                    </div>
+
+                    <div>
+                        <label for="otrosPHogar">Si selecciono "Otros", especifique:</label>
+                        <input type="text" id="otrosPHogar" name="otrosPHogar">
+                        <br><br>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="otrasMascotas">¿Tiene otras mascotas en el hogar?</label>
+                    <select id="otrasMascotas" name="otrasMascotas" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <br><br>
+                
+                <div>
+                    <label for="cualesMascotas">Si tiene mascotas, ¿cuales?</label>
+                    <input type="text" id="cualesMascotas" name="cualesMascotas">
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label>Compromiso de cuidados basicos</label>
+                    <div>
+                        <label><input type="checkbox" name="cuidados" value="alimentacion" required> Alimentacion adecuada</label>
+                        <br>
+                        <label><input type="checkbox" name="cuidados" value="vacunas" required> Vacunas al dia</label>
+                        <br>
+                        <label><input type="checkbox" name="cuidados" value="esterilizacion" required> Esterilizacion</label>
+                        <br>
+                        <label><input type="checkbox" name="cuidados" value="veterinario" required> Visitas veterinarias</label>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="visitasSeguimiento">¿Acepta visitas de seguimiento post-adopcion?</label>
+                    <select id="visitasSeguimiento" name="visitasSeguimiento" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <br>
+            </div>
+        </div>
+        
+        <!-- Datos del proceso -->
+        <div>
+            <h2>🏠 Datos del proceso</h2>
+            <div>
+                <div>
+                    <label for="fechaSolicitud">Fecha de solicitud de adopcion</label>
+                    <input type="date" id="fechaSolicitud" name="fechaSolicitud" required>
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="responsable">Responsable del tramite</label>
+                    <input type="text" id="responsable" name="responsable" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="estadoSolicitud">Estado de la solicitud</label>
+                    <select id="estadoSolicitud" name="estadoSolicitud" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="en_revision">En revision</option>
+                        <option value="aprobada">Aprobada</option>
+                        <option value="rechazada">Rechazada</option>
+                        <option value="completada">Completada</option>
+                    </select>
+                </div>
+                <br><br>
+                
+                <div>
+                    <label for="fechaAdopcion">Fecha de adopcion oficial</label>
+                    <input type="date" id="fechaAdopcion" name="fechaAdopcion">
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="observaciones">Observaciones adicionales</label>
+                    <textarea id="observaciones" name="observaciones"></textarea>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Declaración de compromiso -->
+        <div>
+            <h2>🏠 Declaracion de compromiso</h2>
+            <div>
+                <div>
+                    <p><strong>Declaración:</strong> "Me comprometo a brindar al animal un hogar responsable, seguro y lleno de cuidado, manteniendo sus vacunas y esterilizacion, y permitiendo visitas de seguimiento si el albergue lo considera necesario."</p>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="firmaAdoptante">Firma del adoptante *</label>
+                    <input type="text" id="firmaAdoptante" name="firmaAdoptante" required placeholder="Nombre completo como firma">
+                    <br><br>
+                </div>
+                
+                <div>
+                    <label for="fechaFirma">Fecha de firma</label>
+                    <input type="date" id="fechaFirma" name="fechaFirma" required>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <label for="firmaAlbergue">Firma y sello del albergue</label>
+                    <input type="text" id="firmaAlbergue" name="firmaAlbergue">
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        
+        <button type="submit">Enviar Solicitud de Adopcion</button>
+    </form>
+</body>
+</html>
