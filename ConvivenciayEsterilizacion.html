@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Convivencia y Esterilización</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f7;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .imagen{
+      flex: 1;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+
+    .imagen-card img {
+      width: 60%;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: white;
+      color: #007bff;
+      border: 2px solid #007bff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    .caja-info {
+      flex: 1;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .caja-info h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .caja-info h3 {
+      font-size: 18px;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .caja-info p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="imagen-card">
+      <img src="img/PerroEvento.webp" alt="Evento con perro">
+      <button class="btn">Registrar mi asistencia</button>
+    </div>
+
+    <div class="caja-info">
+      <h2>Convivencia y Esterilización</h2>
+
+      <h3>Asistentes</h3>
+      <p>300 personas.</p>
+
+      <h3>Horario</h3>
+      <p>9:00 - 17:00</p>
+
+      <h3>Ubicación</h3>
+      <p>
+        ESCOM IPN, Unidad Profesional Adolfo López Mateos,<br>
+        Av. Juan de Dios Bátiz, Nueva Industrial Vallejo,<br>
+        Gustavo A. Madero, 07320 Ciudad de México, CDMX
+      </p>
+
+      <h3>Descripción</h3>
+      <p>
+        El albergue realizará una jornada de esterilización gratuita, 
+        acompañada de actividades de convivencia con los perros rescatados. 
+        Habrá orientación veterinaria, dinámicas familiares, charlas sobre tenencia responsable 
+        y un recorrido por el albergue para promover la adopción y el cuidado de los animales.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
