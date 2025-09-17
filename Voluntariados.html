@@ -60,13 +60,34 @@
             grid-template-rows:  1fr 1fr;
             gap: 16px;
             padding-bottom: 80px;/* Esto es por la cagada con las alturas hay un error con el header y ifram corregir*/
-         }       
+         }
+         
+        .btn {
+            align-self: flex-end;
+            background: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer; 
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto; 
+        }
+
+    .btn:hover {
+        align-self: flex-end;
+      background: #007bff;
+      color: white;
+    }
+         
     </style>
 </head>
 <body>
     
         <a class="titulo">Voluntarios Activos</a>
-        <button class="btn-registrar" onclick="window.location.href='voluntario.html'">
+        <button class="btn" onclick="window.location.href='RegistroVoluntarios.html'">
             Registrar Voluntario
         </button>
         

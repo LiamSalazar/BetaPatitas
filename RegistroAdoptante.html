@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Adoptantes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .contenedor {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 18px;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      border-radius: 12px;
+    }
+
+    .forms {
+      margin-bottom: 15px;
+    }
+
+    .checkbox label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0;
+    }
+
+    .btn {
+      background: white;
+      color: #007bff;
+      border: 2px solid #007bff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .btn:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    .filas {
+      display: flex;
+      gap: 15px;
+    }
+
+    .filas .forms {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Registro de Adoptantes</h1>
+
+    <form>
+      <h2>Datos del Adoptante</h2>
+
+      <div class="forms">
+        <label for="persona_id">Seleccionar Persona</label>
+        <select id="persona_id" name="persona_id" required>
+          <option value="">Seleccione una persona</option>
+          <option value="1">Juan Pérez</option>
+          <option value="2">María López</option>
+        </select>
+      </div>
+
+      <div class="forms">
+        <label for="domicilio_tipo">Tipo de domicilio</label>
+        <select id="domicilio_tipo" name="domicilio_tipo">
+          <option value="">Seleccione tipo</option>
+          <option value="propio">Propio</option>
+          <option value="renta">Renta</option>
+          <option value="familiar">Familiar</option>
+        </select>
+      </div>
+
+      <div class="forms">
+        <label for="comp_dom">Comprobante de domicilio</label>
+        <input type="file" id="comp_dom" name="comp_dom" accept="application/pdf">
+      </div>
+
+      <div class="forms">
+        <label for="tam_vivienda_m2">Tamaño vivienda (m²)</label>
+        <input type="number" id="tam_vivienda_m2" name="tam_vivienda_m2" step="0.1">
+      </div>
+
+      <div class="forms">
+        <label for="tipo_vivienda">Tipo de vivienda</label>
+        <select id="tipo_vivienda" name="tipo_vivienda">
+          <option value="">Seleccione tipo</option>
+          <option value="casa">Casa</option>
+          <option value="departamento">Departamento</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="checkbox">
+        <label><input type="checkbox" id="tiene_hijos" name="tiene_hijos"> Tiene hijos</label>
+      </div>
+      <div class="forms">
+        <label for="hijos_rangos_edad">Rango de edades de hijos</label>
+        <select id="hijos_rangos_edad" name="hijos_rangos_edad">
+            <option value="">Seleccione rango</option>
+            <option value="0-3">0-3 años</option>
+            <option value="4-6">4-6 años</option>
+            <option value="7-12">7-12 años</option>
+            <option value="13-18">13-18 años</option>
+        </select>
+      </div>
+
+      <div class="checkbox">
+        <label><input type="checkbox" id="tiene_otras_mascotas" name="tiene_otras_mascotas"> Tiene otras mascotas</label>
+      </div>
+      <div class="forms">
+        <label for="otras_mascotas_detalle">Características de otras mascotas</label>
+        <textarea id="otras_mascotas_detalle" name="otras_mascotas_detalle" maxlength="200" placeholder="Escriba características como sociable, tímido, mayor, etc."></textarea>
+      </div>
+
+      <div class="checkbox">
+        <label><input type="checkbox" id="experiencia_mascotas" name="experiencia_mascotas"> Tiene experiencia con mascotas</label>
+      </div>
+
+      <div class="forms">
+        <label for="motivo_adopcion">Motivo de adopción</label>
+        <textarea id="motivo_adopcion" name="motivo_adopcion" maxlength="300"></textarea>
+      </div>
+
+      <h2>Referencias</h2>
+      <div class="forms">
+        <label for="referencia1_nombre">Nombre referencia 1</label>
+        <input type="text" id="referencia1_nombre" name="referencia1_nombre" maxlength="100">
+      </div>
+      <div class="forms">
+        <label for="referencia1_tel">Teléfono referencia 1</label>
+        <input type="tel" id="referencia1_tel" name="referencia1_tel" maxlength="20">
+      </div>
+      <div class="forms">
+        <label for="referencia2_nombre">Nombre referencia 2</label>
+        <input type="text" id="referencia2_nombre" name="referencia2_nombre" maxlength="100">
+      </div>
+      <div class="forms">
+        <label for="referencia2_tel">Teléfono referencia 2</label>
+        <input type="tel" id="referencia2_tel" name="referencia2_tel" maxlength="20">
+      </div>
+
+      <h2>Contrato</h2>
+      <div class="forms">
+        <label for="contrato">Contrato</label>
+        <input type="file" id="contrato" name="contrato" accept="application/pdf">
+      </div>
+      <div class="forms">
+        <label for="contrato_fecha">Fecha del contrato</label>
+        <input type="date" id="contrato_fecha" name="contrato_fecha">
+      </div>
+
+      <div class="forms">
+        <label for="estatus_evaluacion">Estatus de evaluación</label>
+        <input type="text" id="estatus_evaluacion" name="estatus_evaluacion" value="En revisión" readonly>
+     </div>
+
+      <button type="submit" class="btn">Registrar Adoptante</button>
+    </form>
+  </div>
+</body>
+</html>

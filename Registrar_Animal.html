@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Animal — Corregido</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Inter Tight", sans-serif; }
+    body {
+      background: linear-gradient(135deg,#f5f5f7 0%, #dceefc 100%);
+      display:flex; justify-content:center; padding:40px; min-height:100vh;
+    }
+    .form-container {
+      background:#fff; border-radius:24px; box-shadow:0 12px 24px rgba(0,0,0,0.08);
+      padding:32px; width:100%; max-width:900px;
+    }
+    h2 { text-align:center; font-size:28px; margin-bottom:16px; color:#FF7B00; }
+    h3 { margin-top:18px; margin-bottom:8px; color:#489FB5; }
+    .form-group { margin-bottom:14px; }
+    label { display:block; margin-bottom:6px; font-weight:600; color:#16697A; }
+    input, select, textarea { width:100%; padding:12px; border:2px solid #E0E3E7; border-radius:20px; font-size:15px; }
+    .form-group-inline { display:flex; gap:16px; }
+    .form-group-inline .form-group { flex:1; }
+    .btn-submit {
+      margin-top:18px; width:100%; padding:14px; border-radius:40px; border:2px solid #007bff;
+      background:white; color:#007bff; font-weight:700; cursor:pointer;
+    }
+    .btn-submit:hover { background:#007bff; color:white; transform:translateY(-2px); }
+
+    /* Results styling */
+    .results-container { margin-top:20px; }
+    .submission-card {
+      background:#f7fbfd; border-radius:12px; padding:14px; margin-bottom:12px;
+      box-shadow:0 6px 14px rgba(34,34,34,0.04);
+    }
+    .submission-card h4 { margin-bottom:8px; color:#16697A; }
+    .submission-table { width:100%; border-collapse:collapse; }
+    .submission-table td { padding:8px 10px; border-bottom:1px solid #eef3f5; vertical-align:top; }
+    .submission-table td:first-child { width:200px; font-weight:600; color:#16697A; }
+    #raza-info { cursor:pointer; margin-left:8px; font-size:16px; user-select:none; }
+    @media (max-width:600px) { .form-group-inline { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registro de Animal</h2>
+
+    <form id="animalForm" action="#" method="post" enctype="multipart/form-data">
+      <!-- DATOS BASICOS -->
+      <h3>Datos Básicos</h3>
+      <div class="form-group">
+        <label for="nombre">Nombre *</label>
+        <input type="text" id="nombre" name="nombre" maxlength="60" required pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$" title="Solo letras y espacios">
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="fecha_nacimiento">Fecha de nacimiento</label>
+          <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+        </div>
+        <div class="form-group">
+          <label for="sexo">Sexo *</label>
+          <select id="sexo" name="sexo" required>
+            <option value="">Seleccione</option>
+            <option>Macho</option>
+            <option>Hembra</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="especie">Especie *</label>
+          <select id="especie" name="especie" required>
+            <option value="">Seleccione</option>
+            <option>Perro</option>
+            <option>Gato</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="raza">Raza <span id="raza-info" title="Información de la raza">ℹ️</span></label>
+          <select id="raza" name="raza">
+            <option value="">Seleccione</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="tamano">Tamaño *</label>
+          <select id="tamano" name="tamano" required>
+            <option value="">Seleccione</option>
+            <option>Pequeño</option>
+            <option>Mediano</option>
+            <option>Grande</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tipo_pelo">Tipo de pelo</label>
+          <select id="tipo_pelo" name="tipo_pelo">
+            <option value="">Seleccione</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="color_pelo">Color de pelo</label>
+          <select id="color_pelo" name="color_pelo">
+            <option value="">Seleccione</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="patron_color">Patrón de color</label>
+          <select id="patron_color" name="patron_color">
+            <option value="">Seleccione</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="senas">Señas particulares</label>
+        <textarea id="senas" name="senas" maxlength="200" rows="2"></textarea>
+      </div>
+
+      <!-- IDENTIFICACION -->
+      <h3>Identificación</h3>
+      <div class="form-group">
+        <label for="ruac">RUAC</label>
+        <input type="text" id="ruac" name="ruac" maxlength="30">
+      </div>
+
+      <div class="form-group">
+        <label for="tiene_chip">¿Tiene chip?</label>
+        <select id="tiene_chip" name="tiene_chip">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="chip_tipo">Tipo de chip</label>
+          <input type="text" id="chip_tipo" name="chip_tipo" maxlength="20">
+        </div>
+        <div class="form-group">
+          <label for="chip_numero">Número de chip</label>
+          <input type="text" id="chip_numero" name="chip_numero" maxlength="30" pattern="^[0-9]+$" title="Solo números">
+        </div>
+      </div>
+
+      <!-- SALUD -->
+      <h3>Salud</h3>
+      <div class="form-group">
+        <label for="esterilizado">¿Esterilizado?</label>
+        <select id="esterilizado" name="esterilizado">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fecha_esterilizacion">Fecha esterilización</label>
+        <input type="date" id="fecha_esterilizacion" name="fecha_esterilizacion">
+      </div>
+      <div class="form-group">
+        <label for="ultima_desparasitacion_fecha">Última desparasitación (fecha)</label>
+        <input type="date" id="ultima_desparasitacion_fecha" name="ultima_desparasitacion_fecha">
+      </div>
+      <div class="form-group">
+        <label for="ultima_desparasitacion_tipo">Tipo de desparasitación</label>
+        <input type="text" id="ultima_desparasitacion_tipo" name="ultima_desparasitacion_tipo" maxlength="20">
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="peso_kg">Peso (kg)</label>
+          <input type="number" step="0.01" id="peso_kg" name="peso_kg" min="0">
+        </div>
+        <div class="form-group">
+          <label for="condicion_corporal_bcs">Condición corporal (1-9)</label>
+          <input type="number" id="condicion_corporal_bcs" name="condicion_corporal_bcs" min="1" max="9">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="estado_salud">Estado de salud</label>
+        <input type="text" id="estado_salud" name="estado_salud" maxlength="30">
+      </div>
+      <div class="form-group">
+        <label for="alergias">Alergias</label>
+        <textarea id="alergias" name="alergias" maxlength="120" rows="2"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="dieta">Dieta</label>
+        <textarea id="dieta" name="dieta" maxlength="120" rows="2"></textarea>
+      </div>
+
+      <!-- COMPORTAMIENTO -->
+      <h3>Comportamiento</h3>
+      <div class="form-group">
+        <label for="temperamento">Temperamento</label>
+        <textarea id="temperamento" name="temperamento" maxlength="120" rows="2"></textarea>
+      </div>
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="compat_ninos">¿Compatible con niños?</label>
+          <select id="compat_ninos" name="compat_ninos">
+            <option value="">Seleccione</option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="compat_perros">¿Compatible con perros?</label>
+          <select id="compat_perros" name="compat_perros">
+            <option value="">Seleccione</option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="compat_gatos">¿Compatible con gatos?</label>
+          <select id="compat_gatos" name="compat_gatos">
+            <option value="">Seleccione</option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="entrenamiento">Entrenamiento</label>
+        <textarea id="entrenamiento" name="entrenamiento" maxlength="120" rows="2"></textarea>
+      </div>
+
+      <!-- ADOPCION -->
+      <h3>Adopción</h3>
+      <div class="form-group">
+        <label for="estado_adopcion">Estado de adopción *</label>
+        <select id="estado_adopcion" name="estado_adopcion" required>
+          <option value="">Seleccione</option>
+          <option>Disponible</option>
+          <option>En proceso</option>
+          <option>Adoptado</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fecha_ingreso">Fecha de ingreso *</label>
+        <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
+      </div>
+      <div class="form-group">
+        <label for="origen">Origen</label>
+        <input type="text" id="origen" name="origen" maxlength="30">
+      </div>
+      <div class="form-group">
+        <label for="apto_adopcion_desde">Apto adopción desde</label>
+        <input type="date" id="apto_adopcion_desde" name="apto_adopcion_desde">
+      </div>
+
+      <!-- ARCHIVOS -->
+      <h3>Archivos</h3>
+      <div class="form-group">
+        <label for="cartilla_salud_pdf">Cartilla de salud (PDF)</label>
+        <input type="file" id="cartilla_salud_pdf" name="cartilla_salud_pdf" accept="application/pdf">
+      </div>
+      <div class="form-group">
+        <label for="foto">Foto de perfil *</label>
+        <input type="file" id="foto" name="foto" accept="image/*" required>
+      </div>
+
+      <button type="submit" class="btn-submit">Registrar Mascota</button>
+    </form>
+
+    <!-- Lugar donde se muestran los registros enviados -->
+    <div id="results" class="results-container" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

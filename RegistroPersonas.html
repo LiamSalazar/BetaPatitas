@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuarios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .contenedor {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 18px;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      border-radius: 12px;
+    }
+
+    .forms {
+      margin-bottom: 15px;
+    }
+
+    .filas {
+      display: flex;
+      gap: 15px;
+    }
+
+    .filas .forms {
+      flex: 1;
+    }
+
+    .checkbox {
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: white;
+      color: #007bff;
+      border: 2px solid #007bff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    .roles-celda {
+      display: flex;
+      flex-wrap: wrap;     
+      gap: 15px 20px;      
+      margin-bottom: 20px;
+    }
+    .roles-celda label {
+      display: flex;
+      align-items: center; 
+      gap: 8px;            
+      margin-bottom: 0;  
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Registro de Usuarios</h1>
+
+    <form>
+      <h2>Datos personales</h2>
+      <div class="forms">
+        <label for="persona_id">ID único</label>
+        <input type="number" id="persona_id" name="persona_id" required>
+      </div>
+      <div class="filas">
+        <div class="forms">
+          <label for="nombres">Nombres</label>
+          <input type="text" id="nombres" name="nombres" maxlength="100" required>
+        </div>
+        <div class="forms">
+          <label for="primer_apellido">Primer apellido</label>
+          <input type="text" id="primer_apellido" name="primer_apellido" maxlength="60" required>
+        </div>
+      </div>
+      <div class="filas">
+        <div class="forms">
+          <label for="segundo_apellido">Segundo apellido</label>
+          <input type="text" id="segundo_apellido" name="segundo_apellido" maxlength="60">
+        </div>
+        <div class="forms">
+          <label for="fecha_nacimiento">Fecha de nacimiento</label>
+          <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+        </div>
+      </div>
+      <div class="forms">
+        <label for="sexo">Sexo</label>
+        <select id="sexo" name="sexo">
+          <option value="">Seleccione</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+
+
+      <h2>Datos de contacto</h2>
+      <div class="forms">
+        <label for="correo_personal">Correo personal</label>
+        <input type="email" id="correo_personal" name="correo_personal" maxlength="120">
+      </div>
+      <div class="filas">
+        <div class="forms">
+          <label for="telefono_movil">Teléfono móvil</label>
+          <input type="tel" id="telefono_movil" name="telefono_movil" maxlength="20">
+        </div>
+        <div class="forms">
+          <label for="telefono_alterno">Teléfono alterno</label>
+          <input type="tel" id="telefono_alterno" name="telefono_alterno" maxlength="20">
+        </div>
+      </div>
+
+
+      <h2>Domicilio</h2>
+      <div class="forms">
+        <label for="domicilio_calle">Calle</label>
+        <input type="text" id="domicilio_calle" name="domicilio_calle" maxlength="120">
+      </div>
+      <div class="filas">
+        <div class="forms">
+          <label for="domicilio_num_ext">Número exterior</label>
+          <input type="text" id="domicilio_num_ext" name="domicilio_num_ext" maxlength="10">
+        </div>
+        <div class="forms">
+          <label for="domicilio_num_int">Número interior</label>
+          <input type="text" id="domicilio_num_int" name="domicilio_num_int" maxlength="10">
+        </div>
+      </div>
+      <div class="forms">
+        <label for="domicilio_colonia">Colonia</label>
+        <input type="text" id="domicilio_colonia" name="domicilio_colonia" maxlength="80">
+      </div>
+      <div class="filas">
+        <div class="forms">
+          <label for="domicilio_municipio">Municipio</label>
+          <input type="text" id="domicilio_municipio" name="domicilio_municipio" maxlength="80">
+        </div>
+        <div class="forms">
+          <label for="domicilio_estado">Estado</label>
+          <input type="text" id="domicilio_estado" name="domicilio_estado" maxlength="80">
+        </div>
+      </div>
+      <div class="filas">
+        <div class="forms">
+          <label for="domicilio_cp">Código postal</label>
+          <input type="text" id="domicilio_cp" name="domicilio_cp" maxlength="10">
+        </div>
+        <div class="forms">
+          <label for="tipo_domicilio">Tipo de domicilio</label>
+          <input type="text" id="tipo_domicilio" name="tipo_domicilio" maxlength="20">
+        </div>
+      </div>
+      <div class="forms">
+        <label for="domicilio_referencias">Referencias</label>
+        <textarea id="domicilio_referencias" name="domicilio_referencias" maxlength="200"></textarea>
+      </div>
+
+
+
+      <h2>INE</h2>
+      <div class="filas">
+        <div class="forms">
+          <label for="ine_clave">Clave INE</label>
+          <input type="text" id="ine_clave" name="ine_clave" maxlength="20">
+        </div>
+        <div class="forms">
+          <label for="ine_vigencia">Vigencia</label>
+          <input type="text" id="ine_vigencia" name="ine_vigencia" maxlength="10">
+        </div>
+      </div>
+      <div class="filas">
+        <div class="forms">
+          <label for="ine_foto_frente">Foto INE frente</label>
+          <input type="file" id="ine_foto_frente" name="ine_foto_frente" accept="image/*">
+        </div>
+        <div class="forms">
+          <label for="ine_foto_reverso">Foto INE reverso</label>
+          <input type="file" id="ine_foto_reverso" name="ine_foto_reverso" accept="image/*">
+        </div>
+      </div>
+      <div class="filas">
+        <div class="forms">
+          <label for="foto_perfil">Foto de perfil</label>
+          <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*">
+        </div>
+      </div>
+
+
+
+      <h2>Consentimientos</h2>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="consentimiento_datos" name="consentimiento_datos"> Acepto el uso de mis datos personales </label>
+      </div>
+      <div class="forms">
+        <label for="consentimiento_fecha">Fecha de consentimiento</label>
+        <input type="date" id="consentimiento_fecha" name="consentimiento_fecha">
+      </div>
+
+  
+
+      <h2>Roles</h2>
+      <div class="roles-celda">
+        <label><input type="checkbox" id="es_administrador" name="es_administrador"> Administrador</label>
+        <label><input type="checkbox" id="es_veterinario" name="es_veterinario"> Veterinario</label>
+        <label><input type="checkbox" id="es_voluntario" name="es_voluntario"> Voluntario</label>
+        <label><input type="checkbox" id="es_adoptante" name="es_adoptante"> Adoptante</label>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="submit" class="btn">Registrarme</button>
+      </div>
+</body>
+</html>

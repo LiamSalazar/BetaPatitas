@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perros</title>
+    <title>Animales</title>
     <style>
          @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -18,173 +18,208 @@
              padding: 48px;
              display: flex;
              flex-direction: column;
-             gap: 32px;
+             gap: 25px;
         }
         .titulo{
             font-size: 48px;
             font-weight: 600;
         }
 
-
-         .slider{
+        .slider{
             display: flex;
             gap: 16px;
         }
-            .carta{
-                width: 260px;
-                height: 350px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-evenly;
-                background: white;
-                border-radius: 12px;
-            }
-                .img_carta{
-                    width: 180px;
-                    height: 180px;
-                    border-radius: 100%;
-                }
-                .carta p{
-                    font-size: 28px;
-                    font-weight: 600;
-                }
-                .carta span{
-                    font-size: 20px;
-                    font-weight: 600;
-                }
-         .slider_grid{
-             display: grid;
-            grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows:  1fr 1fr;
+        
+        .carta{
+            width: 260px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .img_carta{
+            width: 180px;
+            height: 180px;
+            border-radius: 100%;
+        }
+        
+        .carta p{
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .carta span{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .slider_grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
             gap: 16px;
-            padding-bottom: 80px;/* Esto es por la cagada con las alturas hay un error con el header y ifram corregir*/
-         }       
+            margin-bottom: 32px; 
+            padding-bottom: 0;   
+        }
+      
                  
         .carta p a {
-            color: inherit;         /* Mantiene el color del texto */
-            text-decoration: none;  /* Quita el subrayado */
+            color: inherit;         
+            text-decoration: none;  
+        }
+
+        .btn-registrar {
+            background: #489FB5; 
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            align-self: flex-end; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-registrar:hover {
+            background: #FFA62C; 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-registrar:active {
+            transform: translateY(0px); 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
     
-        <a class="titulo">Perros guardados</a>
-        <button class="btn-registrar" onclick="window.location.href='registrar.html'">
-            Registrar Animal
-        </button>
-        
-        <div class="slider">
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
+    <button class="btn-registrar" onclick="window.location.href='Registrar_Animal.html'">
+        Registrar Animal
+    </button>
 
-            
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
+    <!--PERROS -->
+    <a class="titulo">Perros guardados</a>
+    
+    
+    <div class="slider">
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
         </div>
-    
-          <a class="titulo">Todos los perros</a>
-        <div class="slider_grid">
-             <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-            
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-              <!-- 6 cartas -->
-
-                <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-            
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-
-            <div class="carta">
-                <img class="img_carta" src="img/perro_1.jfif">
-                <p><a href="DogProfile.html">Firualas</a></p>
-                <span>En adopción</span>
-            </div>
-             <!-- 6 cartas -->
-
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
         </div>
-    
-    
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
+        </div>
+    </div>
+
+    <a class="titulo">Todos los perros</a>
+    <div class="slider_grid">
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/perro_1.jfif">
+            <p><a href="DogProfile.html">Firualas</a></p>
+            <span>En adopción</span>
+        </div>
+    </div>
+
+    <!--GATOS-->
+    <a class="titulo">Gatos guardados</a>
+    <div class="slider">
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+    </div>
+
+    <a class="titulo">Todos los gatos</a>
+    <div class="slider_grid">
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+        <div class="carta">
+            <img class="img_carta" src="img/Gato.jpg">
+            <p><a href="CatProfile.html">Luna</a></p>
+            <span>En adopción</span>
+        </div>
+    </div>
+
 </body>
 </html>
