@@ -144,7 +144,13 @@
       <div class="form-group-inline">
         <div class="form-group">
           <label for="chip_tipo">Tipo de chip</label>
-          <input type="text" id="chip_tipo" name="chip_tipo" maxlength="20">
+          <select id="chip_tipo" name="chip_tipo">
+            <option value="">Seleccione</option>
+            <option>ISO 11784/11785</option>
+            <option>FDX-A</option>
+            <option>FDX-B</option>
+            <option>HDX</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="chip_numero">Número de chip</label>
@@ -153,51 +159,121 @@
       </div>
 
       <!-- SALUD -->
-      <h3>Salud</h3>
-      <div class="form-group">
-        <label for="esterilizado">¿Esterilizado?</label>
-        <select id="esterilizado" name="esterilizado">
-          <option value="">Seleccione</option>
-          <option>Si</option>
-          <option>No</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="fecha_esterilizacion">Fecha esterilización</label>
-        <input type="date" id="fecha_esterilizacion" name="fecha_esterilizacion">
-      </div>
-      <div class="form-group">
-        <label for="ultima_desparasitacion_fecha">Última desparasitación (fecha)</label>
-        <input type="date" id="ultima_desparasitacion_fecha" name="ultima_desparasitacion_fecha">
-      </div>
-      <div class="form-group">
-        <label for="ultima_desparasitacion_tipo">Tipo de desparasitación</label>
-        <input type="text" id="ultima_desparasitacion_tipo" name="ultima_desparasitacion_tipo" maxlength="20">
-      </div>
+    <h3>Salud</h3>
+    <div class="form-group">
+      <label for="esterilizado">¿Esterilizado?</label>
+      <select id="esterilizado" name="esterilizado">
+        <option value="">Seleccione</option>
+        <option>Si</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="fecha_esterilizacion">Fecha esterilización</label>
+      <input type="date" id="fecha_esterilizacion" name="fecha_esterilizacion">
+    </div>
 
-      <div class="form-group-inline">
-        <div class="form-group">
-          <label for="peso_kg">Peso (kg)</label>
-          <input type="number" step="0.01" id="peso_kg" name="peso_kg" min="0">
-        </div>
-        <div class="form-group">
-          <label for="condicion_corporal_bcs">Condición corporal (1-9)</label>
-          <input type="number" id="condicion_corporal_bcs" name="condicion_corporal_bcs" min="1" max="9">
-        </div>
-      </div>
+<!-- DESPARASITACION -->
+<div class="form-group">
+  <label for="desparasitado">¿Desparasitado?</label>
+  <select id="desparasitado" name="desparasitado" onchange="mostrarDesparasitacion(this.value)">
+    <option value="">Seleccione</option>
+    <option>Si</option>
+    <option>No</option>
+  </select>
+</div>
 
-      <div class="form-group">
-        <label for="estado_salud">Estado de salud</label>
-        <input type="text" id="estado_salud" name="estado_salud" maxlength="30">
-      </div>
-      <div class="form-group">
-        <label for="alergias">Alergias</label>
-        <textarea id="alergias" name="alergias" maxlength="120" rows="2"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="dieta">Dieta</label>
-        <textarea id="dieta" name="dieta" maxlength="120" rows="2"></textarea>
-      </div>
+<div id="desparasitacionContainer" style="display:none;">
+  <div class="desparasitacion-item form-group-inline">
+    <div class="form-group">
+      <label>Tipo de desparasitación</label>
+      <select name="tipo_desparasitacion[]">
+        <option value="">Seleccione</option>
+        <option>Interna</option>
+        <option>Externa</option>
+        <option>Mixta</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Fecha</label>
+      <input type="date" name="fecha_desparasitacion[]">
+    </div>
+  </div>
+  <button type="button" onclick="agregarDesparasitacion()">➕ Agregar otra desparasitación</button>
+</div>
+
+      <!-- PESO -->
+<div class="form-group-inline">
+  <div class="form-group">
+    <label for="peso_kg">Peso (kg)</label>
+    <input type="number" step="0.01" id="peso_kg" name="peso_kg" min="0">
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="estado_salud">Estado de salud</label>
+  <select id="estado_salud" name="estado_salud" onchange="mostrarOtro(this, 'otroEstadoSalud')">
+    <option value="">Seleccione</option>
+    <option>Excelente</option>
+    <option>Bueno</option>
+    <option>Regular</option>
+    <option>Delicado</option>
+    <option>Crítico</option>
+    <option>Otro</option>
+  </select>
+</div>
+<div class="form-group" id="otroEstadoSalud" style="display:none;">
+  <label>Especifique otro estado</label>
+  <input type="text" name="estado_salud_otro" maxlength="50">
+</div>
+
+<!-- ALERGIAS -->
+<div class="form-group">
+  <label for="alergias">¿Tiene alergias?</label>
+  <select id="alergias" name="alergias" onchange="mostrarAlergias(this.value)">
+    <option value="">Seleccione</option>
+    <option>Si</option>
+    <option>No</option>
+  </select>
+</div>
+
+<div id="alergiasContainer" style="display:none;">
+  <div class="alergia-item form-group">
+    <label>Tipo de alergia</label>
+    <select name="tipo_alergia[]" onchange="mostrarOtro(this, 'otraAlergia')">
+      <option value="">Seleccione</option>
+      <option>Alimentaria</option>
+      <option>Ambiental</option>
+      <option>Picaduras</option>
+      <option>Medicamentos</option>
+      <option>Otro</option>
+    </select>
+  </div>
+  <div class="form-group" id="otraAlergia" style="display:none;">
+    <label>Especifique otra alergia</label>
+    <input type="text" name="alergia_otro[]" maxlength="50">
+  </div>
+  <button type="button" onclick="agregarAlergia()">➕ Agregar otra alergia</button>
+</div>
+
+
+<!-- DIETA -->
+<div class="form-group">
+  <label for="dieta">Dieta</label>
+  <select id="dieta" name="dieta" onchange="mostrarOtro(this, 'otraDieta')">
+    <option value="">Seleccione</option>
+    <option>Balanceado</option>
+    <option>Casera</option>
+    <option>Mixta</option>
+    <option>Especial (veterinaria)</option>
+    <option>Otro</option>
+  </select>
+</div>
+<div class="form-group" id="otraDieta" style="display:none;">
+  <label>Especifique otra dieta</label>
+  <input type="text" name="dieta_otro" maxlength="50">
+</div>
+
 
       <!-- COMPORTAMIENTO -->
       <h3>Comportamiento</h3>
@@ -240,22 +316,41 @@
       <!-- ADOPCION -->
       <h3>Adopción</h3>
       <div class="form-group">
-        <label for="estado_adopcion">Estado de adopción *</label>
-        <select id="estado_adopcion" name="estado_adopcion" required>
-          <option value="">Seleccione</option>
-          <option>Disponible</option>
-          <option>En proceso</option>
-          <option>Adoptado</option>
-        </select>
-      </div>
+  <label for="estado_adopcion">Estado de adopción *</label>
+  <select id="estado_adopcion" name="estado_adopcion" required onchange="mostrarOtro(this, 'otroEstadoAdopcion')">
+    <option value="">Seleccione</option>
+    <option>Disponible</option>
+    <option>En proceso</option>
+    <option>Adoptado</option>
+    <option>Otro</option>
+  </select>
+</div>
+<div class="form-group" id="otroEstadoAdopcion" style="display:none;">
+  <label>Especifique otro estado</label>
+  <input type="text" name="estado_adopcion_otro" maxlength="50">
+</div>
+
+
       <div class="form-group">
         <label for="fecha_ingreso">Fecha de ingreso *</label>
         <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
       </div>
       <div class="form-group">
-        <label for="origen">Origen</label>
-        <input type="text" id="origen" name="origen" maxlength="30">
-      </div>
+  <label for="origen">Origen</label>
+  <select id="origen" name="origen" onchange="mostrarOtro(this, 'otroOrigen')">
+    <option value="">Seleccione</option>
+    <option>Rescate</option>
+    <option>Abandono</option>
+    <option>Nacimiento en refugio</option>
+    <option>Entrega voluntaria</option>
+    <option>Otro</option>
+  </select>
+</div>
+<div class="form-group" id="otroOrigen" style="display:none;">
+  <label>Especifique otro origen</label>
+  <input type="text" name="origen_otro" maxlength="50">
+</div>
+
       <div class="form-group">
         <label for="apto_adopcion_desde">Apto adopción desde</label>
         <input type="date" id="apto_adopcion_desde" name="apto_adopcion_desde">
@@ -279,7 +374,7 @@
     <div id="results" class="results-container" aria-live="polite"></div>
   </div>
 
-  <script src="script.js"></script>
+   <script src="script.js"></script>
 
 </body>
 </html>

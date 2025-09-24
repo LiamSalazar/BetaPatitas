@@ -207,3 +207,66 @@ document.addEventListener('DOMContentLoaded', () => {
     card.scrollIntoView({behavior:'smooth', block:'center'});
   }
 });
+
+function mostrarTiposAlergia(valor) {
+  document.getElementById('tiposAlergia').style.display = valor === 'Si' ? 'block' : 'none';
+}
+
+function mostrarDesparasitacion(valor) {
+  document.getElementById('desparasitacionContainer').style.display = valor === 'Si' ? 'block' : 'none';
+}
+
+function agregarDesparasitacion() {
+  const container = document.getElementById('desparasitacionContainer');
+  const newItem = document.createElement('div');
+  newItem.classList.add('desparasitacion-item', 'form-group-inline');
+  newItem.innerHTML = `
+    <div class="form-group">
+      <label>Tipo de desparasitación</label>
+      <select name="tipo_desparasitacion[]">
+        <option value="">Seleccione</option>
+        <option>Interna</option>
+        <option>Externa</option>
+        <option>Mixta</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Fecha</label>
+      <input type="date" name="fecha_desparasitacion[]">
+    </div>
+  `;
+  container.insertBefore(newItem, container.lastElementChild);
+}
+
+function mostrarAlergias(valor) {
+  document.getElementById('alergiasContainer').style.display = valor === 'Si' ? 'block' : 'none';
+}
+
+function agregarAlergia() {
+  const container = document.getElementById('alergiasContainer');
+  const newItem = document.createElement('div');
+  const index = container.querySelectorAll('.alergia-item').length + 1;
+  newItem.classList.add('alergia-item', 'form-group');
+  newItem.innerHTML = `
+    <label>Tipo de alergia</label>
+    <select name="tipo_alergia[]" id="alergia${index}" onchange="mostrarOtro(this, 'otroAlergia${index}')">
+      <option value="">Seleccione</option>
+      <option>Alimentaria</option>
+      <option>Ambiental</option>
+      <option>Picaduras</option>
+      <option>Medicamentos</option>
+      <option>Otro</option>
+    </select>
+    <div id="otroAlergia${index}" style="display:none;">
+      <label>Especifique otra alergia</label>
+      <input type="text" name="otro_alergia[]" maxlength="50">
+    </div>
+  `;
+  container.insertBefore(newItem, container.lastElementChild);
+}
+
+
+function mostrarOtro(select, idCampo) {
+  const campo = document.getElementById(idCampo);
+  campo.style.display = select.value === 'Otro' ? 'block' : 'none';
+}
