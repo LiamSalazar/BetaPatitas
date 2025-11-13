@@ -1,167 +1,181 @@
-## Catálogo RUAC – BLAM_catalogo
+# Catálogo RUAC - Registro Único de Animales de Compañía
 
-### Descripción General
+Este catálogo implementa el **Modelo Relacional** del proyecto RUAC, que incluye las 5 tablas de datos transaccionales y 8 tablas auxiliares (catálogos) para estandarizar las opciones de los campos. En total, se crean **13 tablas**.
 
-El presente catálogo forma parte del **Sistema RUAC (Registro Único de Animales de Compañía)**.
-Contiene la información base para poblar las tablas del modelo de datos que gestionan la información de cada animal registrado, sus características, salud, coloración y tipo de identificación.
+## Contenido del Catálogo
 
-Los archivos `.csv` están organizados según las entidades principales del modelo relacional mostrado en el diagrama:
+El archivo comprimido (`catalogos_RUAC.zip`) contiene los **13 archivos CSV** necesarios para poblar todas las tablas del modelo:
 
-* **Animal:** Datos generales de cada animal (nombre, especie, sexo, color, tipo, etc.).
-* **IdentificadorAnimal:** Información del tipo y valor del identificador oficial.
-* **SaludAnimal:** Registra esterilización, vacunas y fechas relacionadas.
-* **ColorCombination:** Relación entre colores del animal.
-* **Fotografía:** Enlace a archivos multimedia asociados.
+### 5 Archivos de Datos Transaccionales (Tablas principales):
+1.  `Animal.csv`
+2.  `SaludAnimal.csv`
+3.  `ColorCombinacion.csv`
+4.  `Fotografia.csv`
+5.  `IdentificadorAnimal.csv`
 
-Cada archivo CSV corresponde a un subconjunto de los campos de las tablas del modelo relacional.
-
-
-### Archivos Incluidos
-
-| Archivo                        | Descripción                                        |
-| ------------------------------ | -------------------------------------------------- |
-| `animal_colorojos.csv`         | Colores de ojos del animal                         |
-| `animal_colorprincipal.csv`    | Color principal del animal                         |
-| `animal_especie.csv`           | Especie del animal                                 |
-| `animal_funcion.csv`           | Función o rol del animal (compañía, guardia, etc.) |
-| `animal_llegomediante.csv`     | Medio por el cual llegó el animal                  |
-| `animal_patronpelaje.csv`      | Patrón del pelaje del animal                       |
-| `animal_rgato.csv`             | Registro de animales tipo gato                     |
-| `animal_rperro.csv`            | Registro de animales tipo perro                    |
-| `animal_sexo.csv`              | Catálogo de sexos                                  |
-| `animal_tipo.csv`              | Tipos de animales (gato, perro, etc.)              |
-| `colorcombination_color.csv`   | Combinaciones de colores                           |
-| `identificadoranimal_tipo.csv` | Tipos de identificadores (chip, tatuaje, etc.)     |
-| `saludanimal_vacuna.csv`       | Catálogo de vacunas aplicadas o por aplicar        |
+### 8 Archivos de Listas de Catálogo (Tablas de soporte):
+* `animal_especie.csv`
+* `animal_sexo.csv`
+* `animal_tipo.csv`
+* `animal_funcion.csv`
+* `animal_llegomediante.csv`
+* `animal_patronpelaje.csv`
+* `animal_rperro.csv`
+* `animal_rgato.csv`
+* `animal_colorojos.csv`
+* `animal_colorprincipal.csv`
+* `colorcombination_color.csv`
+* `identificadoranimal_tipo.csv`
+* `saludanimal_vacuna.csv`
 
 
-### Estructura del Modelo de Datos
+## Comandos en Linux para Importación a PostgreSQL
 
-El modelo relacional incluye las siguientes tablas principales:
+### Paso 1: Conexión a la Base de Datos
 
-* `Animal`
-* `IdentificadorAnimal`
-* `SaludAnimal`
-* `ColorCombination`
-* `Fotografia`
-
-Cada tabla está relacionada mediante la clave primaria `id_Animal`.
-
-
-### Instrucciones para Importar el Catálogo en PostgreSQL (Linux)
-
-> **Requisitos previos:**
->
-> * Tener instalado PostgreSQL
-> * Contar con un usuario con permisos para crear bases y tablas
-> * Ubicar los archivos `.csv` en la carpeta `/home/usuario/BLAM_catalogo/`
-
-
-#### Crear la base de datos
+Conéctate a la base de datos de destino (reemplaza `mi_usuario` y `mi_base`):
 
 ```bash
-sudo -u postgres psql
-CREATE DATABASE ruac_db;
-\q
-```
+psql -U mi_usuario -d mi_base
 
-#### Conectarse a la base de datos
+-- TABLAS DE CATÁLOGO (Deben crearse primero para las referencias)
 
-```bash
-psql -U postgres -d ruac_db
-```
+CREATE TABLE IdentificadorTipo (
+    id_IdentificadorTipo INT PRIMARY KEY,
+    nombre_IdentificadorTipo VARCHAR(50) NOT NULL
+);
 
-#### Crear las tablas
+CREATE TABLE AnimalEspecie (
+    id_AnimalEspecie INT PRIMARY KEY,
+    nombre_AnimalEspecie VARCHAR(50) NOT NULL
+);
 
-```sql
+CREATE TABLE AnimalSexo (
+    id_AnimalSexo INT PRIMARY KEY,
+    nombre_AnimalSexo VARCHAR(15) NOT NULL
+);
 
--- Tabla Animal
+CREATE TABLE AnimalTipo (
+    id_AnimalTipo INT PRIMARY KEY,
+    nombre_AnimalTipo VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE AnimalFuncion (
+    id_AnimalFuncion INT PRIMARY KEY,
+    nombre_AnimalFuncion VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE MedioLlegada (
+    id_MedioLlegada INT PRIMARY KEY,
+    nombre_MedioLlegada VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE PatronPelaje (
+    id_PatronPelaje INT PRIMARY KEY,
+    nombre_PatronPelaje VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE ColorOjos (
+    id_ColorOjos INT PRIMARY KEY,
+    nombre_ColorOjos VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE ColorPrincipal (
+    id_ColorPrincipal INT PRIMARY KEY,
+    nombre_ColorPrincipal VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Raza (
+    id_Raza INT PRIMARY KEY,
+    nombre_Raza VARCHAR(120) NOT NULL
+);
+
+
+-- TABLAS TRANSACCIONALES (Las 5 principales)
+
 CREATE TABLE Animal (
-  id_Animal SERIAL PRIMARY KEY,
-  nombre_Animal VARCHAR(120),
-  especie_Animal VARCHAR(10),
-  tipo_Animal VARCHAR(120),
-  raza_Animal VARCHAR(120),
-  sexo_Animal VARCHAR(15),
-  edad_anios_Animal INTEGER,
-  edad_meses_Animal INTEGER,
-  domicilio_anios_Animal INTEGER,
-  domicilio_meses_Animal INTEGER,
-  llego_mediante_Animal VARCHAR(255),
-  funcion_Animal VARCHAR(50),
-  color_principal_Animal VARCHAR(50),
-  patron_pelaje_Animal VARCHAR(50),
-  color_ojos_Animal VARCHAR(50),
-  ruac_clave_Animal VARCHAR(50)
+    id_Animal INT PRIMARY KEY,
+    nombre_Animal VARCHAR(120),
+    id_AnimalEspecie INT NOT NULL,
+    id_AnimalTipo INT,
+    id_Raza INT,
+    id_AnimalSexo INT,
+    edad_anios_Animal SMALLINT,
+    edad_meses_Animal SMALLINT,
+    domicilio_anios_Animal SMALLINT,
+    domicilio_meses_Animal SMALLINT,
+    id_MedioLlegada INT,
+    id_AnimalFuncion INT,
+    id_ColorPrincipal INT,
+    id_PatronPelaje INT,
+    id_ColorOjos INT,
+    fecha_registro_Animal DATE NOT NULL,
+    FOREIGN KEY (id_AnimalEspecie) REFERENCES AnimalEspecie(id_AnimalEspecie),
+    FOREIGN KEY (id_AnimalTipo) REFERENCES AnimalTipo(id_AnimalTipo),
+    FOREIGN KEY (id_Raza) REFERENCES Raza(id_Raza),
+    FOREIGN KEY (id_AnimalSexo) REFERENCES AnimalSexo(id_AnimalSexo),
+    FOREIGN KEY (id_MedioLlegada) REFERENCES MedioLlegada(id_MedioLlegada),
+    FOREIGN KEY (id_AnimalFuncion) REFERENCES AnimalFuncion(id_AnimalFuncion),
+    FOREIGN KEY (id_ColorPrincipal) REFERENCES ColorPrincipal(id_ColorPrincipal),
+    FOREIGN KEY (id_PatronPelaje) REFERENCES PatronPelaje(id_PatronPelaje),
+    FOREIGN KEY (id_ColorOjos) REFERENCES ColorOjos(id_ColorOjos)
 );
 
--- Tabla IdentificadorAnimal
-CREATE TABLE IdentificadorAnimal (
-  id_IdentificadorAnimal SERIAL PRIMARY KEY,
-  tipo_IdentificadorAnimal VARCHAR(50),
-  valor_IdentificadorAnimal VARCHAR(255),
-  id_Animal INTEGER REFERENCES Animal(id_Animal)
-);
-
--- Tabla SaludAnimal
 CREATE TABLE SaludAnimal (
-  id_SaludAnimal SERIAL PRIMARY KEY,
-  esterilizado_SaludAnimal BOOLEAN,
-  antirrabica_SaludAnimal BOOLEAN,
-  otra_vacunacion_SaludAnimal BOOLEAN,
-  fecha_aprox_esterilizacion_SaludAnimal DATE,
-  fecha_aprox_antirrabica_SaludAnimal DATE,
-  fecha_aprox_otra_vacunacion_SaludAnimal DATE,
-  id_Animal INTEGER REFERENCES Animal(id_Animal)
+    id_SaludAnimal INT PRIMARY KEY,
+    id_Animal INT NOT NULL,
+    esterilizado_SaludAnimal BOOLEAN,
+    antirrabica_SaludAnimal BOOLEAN,
+    otra_vacunacion_SaludAnimal BOOLEAN,
+    fecha_aprox_esterilizacion_SaludAnimal DATE,
+    fecha_aprox_antirrabica_SaludAnimal DATE,
+    fecha_aprox_otra_vacunacion_SaludAnimal DATE,
+    FOREIGN KEY (id_Animal) REFERENCES Animal(id_Animal)
 );
 
--- Tabla ColorCombination
-CREATE TABLE ColorCombination (
-  id_ColorCombinacion SERIAL PRIMARY KEY,
-  color_Combinacion VARCHAR(50),
-  id_Animal INTEGER REFERENCES Animal(id_Animal)
+CREATE TABLE ColorCombinacion (
+    id_ColorCombinacion INT PRIMARY KEY,
+    id_ColorPrincipal INT NOT NULL,
+    id_Animal INT NOT NULL,
+    FOREIGN KEY (id_ColorPrincipal) REFERENCES ColorPrincipal(id_ColorPrincipal),
+    FOREIGN KEY (id_Animal) REFERENCES Animal(id_Animal)
 );
 
--- Tabla Fotografia
 CREATE TABLE Fotografia (
-  id_Fotografia SERIAL PRIMARY KEY,
-  tipo_Fotografia VARCHAR(50),
-  ruta_archivo_Fotografia VARCHAR(500),
-  id_Animal INTEGER REFERENCES Animal(id_Animal)
+    id_Fotografia INT PRIMARY KEY,
+    id_Animal INT NOT NULL,
+    tipo_Fotografia VARCHAR(50),
+    ruta_archivo_Fotografia VARCHAR(500) NOT NULL,
+    FOREIGN KEY (id_Animal) REFERENCES Animal(id_Animal)
 );
-```
 
-#### Importar los datos desde los archivos CSV
+CREATE TABLE IdentificadorAnimal (
+    id_IdentificadorAnimal INT PRIMARY KEY,
+    id_Animal INT NOT NULL,
+    id_IdentificadorTipo INT NOT NULL,
+    valor_IdentificadorAnimal VARCHAR(255) NOT NULL,
+    FOREIGN KEY (id_Animal) REFERENCES Animal(id_Animal),
+    FOREIGN KEY (id_IdentificadorTipo) REFERENCES IdentificadorTipo(id_IdentificadorTipo)
+);
 
-Asumiendo que tus archivos `.csv` están en `/home/usuario/BLAM_catalogo/`, usa los siguientes comandos en **psql**:
+-- 1. Cargar las tablas de Catálogo
+\copy IdentificadorTipo FROM 'identificadoranimal_tipo.csv' DELIMITER ',' CSV HEADER;
+\copy AnimalEspecie FROM 'animal_especie.csv' DELIMITER ',' CSV HEADER;
+\copy AnimalSexo FROM 'animal_sexo.csv' DELIMITER ',' CSV HEADER;
+\copy AnimalTipo FROM 'animal_tipo.csv' DELIMITER ',' CSV HEADER;
+\copy AnimalFuncion FROM 'animal_funcion.csv' DELIMITER ',' CSV HEADER;
+\copy MedioLlegada FROM 'animal_llegomediante.csv' DELIMITER ',' CSV HEADER;
+\copy PatronPelaje FROM 'animal_patronpelaje.csv' DELIMITER ',' CSV HEADER;
+\copy ColorOjos FROM 'animal_colorojos.csv' DELIMITER ',' CSV HEADER;
+\copy ColorPrincipal FROM 'animal_colorprincipal.csv' DELIMITER ',' CSV HEADER;
+-- Las razas se cargan a la tabla Raza (asumiendo que los CSV tienen las columnas id_Raza, nombre_Raza)
+\copy Raza FROM 'animal_rperro.csv' DELIMITER ',' CSV HEADER;
+\copy Raza FROM 'animal_rgato.csv' DELIMITER ',' CSV HEADER;
 
-```sql
 
--- Importar catálogos
-\copy Animal(color_ojos_Animal) FROM '/home/usuario/BLAM_catalogo/animal_colorojos.csv' CSV HEADER;
-\copy Animal(color_principal_Animal) FROM '/home/usuario/BLAM_catalogo/animal_colorprincipal.csv' CSV HEADER;
-\copy Animal(especie_Animal) FROM '/home/usuario/BLAM_catalogo/animal_especie.csv' CSV HEADER;
-\copy Animal(funcion_Animal) FROM '/home/usuario/BLAM_catalogo/animal_funcion.csv' CSV HEADER;
-\copy Animal(llego_mediante_Animal) FROM '/home/usuario/BLAM_catalogo/animal_llegomediante.csv' CSV HEADER;
-\copy Animal(patron_pelaje_Animal) FROM '/home/usuario/BLAM_catalogo/animal_patronpelaje.csv' CSV HEADER;
-\copy Animal(sexo_Animal) FROM '/home/usuario/BLAM_catalogo/animal_sexo.csv' CSV HEADER;
-\copy Animal(tipo_Animal) FROM '/home/usuario/BLAM_catalogo/animal_tipo.csv' CSV HEADER;
-
--- Importar relaciones
-\copy ColorCombination(color_Combinacion) FROM '/home/usuario/BLAM_catalogo/colorcombination_color.csv' CSV HEADER;
-\copy IdentificadorAnimal(tipo_IdentificadorAnimal) FROM '/home/usuario/BLAM_catalogo/identificadoranimal_tipo.csv' CSV HEADER;
-\copy SaludAnimal(antirrabica_SaludAnimal) FROM '/home/usuario/BLAM_catalogo/saludanimal_vacuna.csv' CSV HEADER;
-
--- Razas de perros
-\copy Animal(raza_Animal) FROM '/home/usuario/BLAM_catalogo/animal_rperro.csv' CSV HEADER;
--- Razas de gatos
-\copy Animal(raza_Animal) FROM '/home/usuario/BLAM_catalogo/animal_rgato.csv' CSV HEADER;
-
-```
-
-#### Verificar la carga de datos
-
-```sql
-SELECT COUNT(*) FROM Animal;
-SELECT COUNT(*) FROM SaludAnimal;
-```
+-- 2. Cargar las 5 tablas Transaccionales (Animal debe ser la primera de este grupo)
+\copy Animal FROM 'Animal.csv' DELIMITER ',' CSV HEADER;
+\copy SaludAnimal FROM 'SaludAnimal.csv' DELIMITER ',' CSV HEADER;
+\copy ColorCombinacion FROM 'colorcombination_color.csv' DELIMITER ',' CSV HEADER;
+\copy Fotografia FROM 'Fotografia.csv' DELIMITER ',' CSV HEADER;
+\copy IdentificadorAnimal FROM 'IdentificadorAnimal.csv' DELIMITER ',' CSV HEADER;
